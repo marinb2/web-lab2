@@ -328,11 +328,13 @@ async function initializeDatabase(): Promise<void> {
     );
   }
 }
-
+console.log("IP: ")
+console.log(process.env.IP)
+IP = process.env.IP ?? "0.0.0.0"
 async function start(): Promise<void> {
   await initializeDatabase();
-  app.listen(port, process.env.IP, () => {
-    console.log(`Servis postavljen http://${process.env.IP}:${port}`);
+  app.listen(port, IP, () => {
+    console.log(`Servis postavljen http://${IP}:${port}`);
   });
 }
 
