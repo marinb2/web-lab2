@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web sigurnosni laboratorij</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Lokalna demonstracija · sintetički podaci</p>
+        <h1>Web sigurnosni laboratorij</h1>
+      </div>
+      <span class="local-badge">Samo ovaj uređaj</span>
+    </header>
+
+    <main>
+      <p class="notice">
+        Ranjivi načini rada služe isključivo za lokalno učenje. Prekidači su
+        isključeni pri pokretanju; uključi ih samo za demonstraciju.
+      </p>
+
+      <section class="lab-card" aria-labelledby="sql-title">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">1. kategorija</p>
+            <h2 id="sql-title">SQL Injection</h2>
+          </div>
+          <label class="toggle">
+            <input id="sql-toggle" data-mode="sqlInjectionEnabled" type="checkbox">
+            <span>Uključi ranjivi način</span>
+          </label>
+        </div>
+        <p>
+          Pretraživanje izmišljenih korisnika demonstrira razliku između
+          tautologije i obične pretrage. Testni unos prikazuje učinak samo nad
+          sintetičkim računima.
+        </p>
+        <form id="search-form" class="form-row">
+          <label for="search-input">Korisničko ime</label>
+          <input id="search-input" name="search" maxlength="120" autocomplete="off">
+          <button type="submit">Pretraži</button>
+        </form>
+        <p id="search-status" class="status" role="status"></p>
+        <div id="search-results" class="results" aria-live="polite"></div>
+      </section>
+
+      <section class="lab-card" aria-labelledby="auth-title">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">2. kategorija</p>
+            <h2 id="auth-title">Loša autentifikacija</h2>
+          </div>
+        </div>
+        <p>
+          Isprobaj isključivo unaprijed pripremljene sintetičke račune.
+          Vertikalno pogađanje cilja jedan račun, horizontalno isprobava isti
+          unos na demo računima. Zaštićeni način provjerava zaporku i ograničava
+          pokušaje po IP adresi i korisničkom računu.
+        </p>
+        <div class="toggle-list">
+          <label class="toggle">
+            <input data-mode="loginAttemptLimitDisabled" type="checkbox">
+            <span>Isključi ograničenje pokušaja (brute force / rječnik)</span>
+          </label>
+          <label class="toggle">
+            <input data-mode="revealingAuthErrorsEnabled" type="checkbox">
+            <span>Prikaži različite greške za korisničko ime i zaporku</span>
+          </label>
+        </div>
+        <form id="login-form" class="login-form">
+          <label for="username-input">Korisničko ime</label>
+          <input id="username-input" value="demo-admin" maxlength="40" autocomplete="username">
+          <label for="password-input">Zaporka</label>
+          <input id="password-input" type="password" maxlength="120" autocomplete="current-password">
+          <button type="submit">Prijavi se</button>
+        </form>
+        <p class="hint">
+          Testni računi: <code>demo-admin</code> i <code>demo-user</code>;
+          zaporka za oba je <code>demo123</code>.
+        </p>
+        <p id="login-status" class="status" role="status"></p>
+        <div id="profile" class="profile" hidden></div>
+        <div class="button-row">
+          <button id="logout-button" class="secondary" type="button" hidden>Odjavi se</button>
+          <button id="reset-attempts-button" class="secondary" type="button">
+            Resetiraj pokušaje demonstracije
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Podaci su izmišljeni i stvaraju se u lokalnoj PostgreSQL bazi.
+    </footer>
+  </body>
+</html>
