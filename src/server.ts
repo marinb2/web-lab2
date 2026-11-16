@@ -335,8 +335,8 @@ async function initializeDatabase(): Promise<void> {
 
 async function start(): Promise<void> {
   await initializeDatabase();
-  app.listen(port, "127.0.0.1", () => {
-    console.log(`Lokalni laboratorij dostupan je na http://127.0.0.1:${port}`);
+  app.listen(port, "0.0.0.0", () => {
+    console.log(`Servis postavljen http://0.0.0.0:${port}`);
   });
 }
 
