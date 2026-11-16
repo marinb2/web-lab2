@@ -331,8 +331,8 @@ async function initializeDatabase(): Promise<void> {
 
 async function start(): Promise<void> {
   await initializeDatabase();
-  app.listen(port, "0.0.0.0", () => {
-    console.log(`Servis postavljen http://0.0.0.0:${port}`);
+  app.listen(port, process.env.IP, () => {
+    console.log(`Servis postavljen http://${process.env.IP}:${port}`);
   });
 }
 
