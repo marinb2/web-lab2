@@ -330,7 +330,7 @@ async function initializeDatabase(): Promise<void> {
 }
 console.log("IP: ")
 console.log(process.env.IP)
-IP = process.env.IP ?? "0.0.0.0"
+const IP = process.env.IP ?? "0.0.0.0"
 async function start(): Promise<void> {
   await initializeDatabase();
   app.listen(port, IP, () => {
