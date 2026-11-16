@@ -78,7 +78,7 @@ const failedLoginAttempts = new Map<
   string,
   { failures: number; blockedUntil: number }
 >();
-const allowedHosts = new Set(["127.0.0.1", "localhost", "::1"]);
+const allowedHosts = new Set(["0.0.0.0", "127.0.0.1", "localhost", "::1"]);
 const maxFailedAttempts = 3;
 const lockoutDurationMs = 30_000;
 
