@@ -1,17 +1,16 @@
 # Web sigurnosni laboratorij
 
-Lokalna demonstracijska aplikacija za SQL Injection i Broken Authentication.
-Koristi samo izmišljene račune i lokalnu PostgreSQL bazu.
+Aplikacija za SQL Injection i Broken Authentication.
 
 ## Preduvjeti
 
 - Node.js 20 ili noviji
 - PostgreSQL
 
-## Pokretanje na Windowsu
+## Lokalno pokretanje na Windowsu
 
 1. U PostgreSQL-u napravi bazu `web2_security_lab`.
-2. Kopiraj `.env.example` u `.env` i podesi lokalne PostgreSQL vjerodajnice.
+2. u `.env` staviti parametre baze (PORT, DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME).
 3. U Command Promptu ili PowerShellu, iz mape `lab2`, pokreni:
 
    ```powershell
