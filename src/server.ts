@@ -90,10 +90,6 @@ app.use((req, res, next) => {
     remoteAddress === "::1" ||
     remoteAddress.startsWith("::ffff:127.");
 
-  if (!isLoopback || !allowedHosts.has(req.hostname)) {
-    res.status(403).json({ error: "Aplikacija je dostupna samo lokalno." });
-    return;
-  }
 
   next();
 });
